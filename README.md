@@ -237,8 +237,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Vaidant Sharma**
-- GitHub: [@VaidantSharma](https://github.com/VaidantSharma)
-- LinkedIn: [Vaidant Sharma](https://linkedin.com/in/vaidantsharma)
+- GitHub: [@VaidantSharma](https://github.com/VaidantSharma/)
+- LinkedIn: [Vaidant Sharma](https://www.linkedin.com/in/vaidant-sharma-7435592a4)
 
 ## 🙏 Acknowledgments
 
