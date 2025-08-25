@@ -24,7 +24,13 @@ import joblib
 warnings.filterwarnings('ignore')
 
 def import_content(filepath):
-    mng_client = pymongo.MongoClient("mongodb+srv://vaidantsharma:yourpassword@heart.9ynzc.mongodb.net/Heartpatientdatabase?retryWrites=true&w=majority")
+    # Get MongoDB connection string from environment variable
+    mongo_uri = os.environ.get("DATABASE_LINK")
+    if not mongo_uri:
+        print("Warning: DATABASE_LINK environment variable not set. Using local MongoDB.")
+        mongo_uri = "mongodb://localhost:27017/"
+    
+    mng_client = pymongo.MongoClient(mongo_uri)
     mng_db = mng_client['Heartpatientdatabase'] 
     collection_name = 'Heart_Data_new'
     db_cm = mng_db[collection_name]

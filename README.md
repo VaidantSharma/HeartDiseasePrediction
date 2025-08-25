@@ -28,6 +28,7 @@ An intelligent web application that predicts the risk of heart disease using mac
 Heart disease is one of the leading causes of death globally. Early detection and continuous monitoring can significantly reduce mortality rates. This project leverages machine learning and big data analytics to create a real-time heart disease prediction system that can help healthcare professionals and individuals assess cardiovascular risk.
 
 ### Key Objectives
+
 - Early detection of heart disease using medical parameters
 - Real-time prediction with high accuracy (92%)
 - User-friendly web interface for easy interaction
@@ -47,6 +48,7 @@ Heart disease is one of the leading causes of death globally. Early detection an
 ## 🛠 Technology Stack
 
 ### Core Technologies
+
 - **Backend**: Python 3.8+, Flask
 - **Machine Learning**: Scikit-learn, XGBoost, NumPy, Pandas
 - **Database**: MongoDB, PyMongo
@@ -55,6 +57,7 @@ Heart disease is one of the leading causes of death globally. Early detection an
 - **Deployment**: Gunicorn, Heroku
 
 ### Machine Learning Libraries
+
 - **Scikit-learn**: Model building and evaluation
 - **XGBoost**: Gradient boosting algorithms
 - **NumPy**: Numerical computations
@@ -93,32 +96,50 @@ Cardio-Monitor/
 ## 🚀 Installation
 
 ### Prerequisites
+
 - Python 3.8 or higher
 - MongoDB (local or cloud instance)
 - Git
 
 ### Step 1: Clone the Repository
+
 ```bash
 git clone https://github.com/VaidantSharma/HeartDiseasePrediction.git
 cd Cardio-Monitor
 ```
 
 ### Step 2: Create Virtual Environment
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 ### Step 3: Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Set Up Database
-1. Install MongoDB locally or use MongoDB Atlas
-2. Update database connection in `database.py`
+### Step 4: Set Up Environment Variables
 
-### Step 5: Run the Application
+1. Copy the `.env.example` file to `.env`:
+   ```bash
+   cp .env .env.local  # or create your own .env file
+   ```
+
+2. Edit the `.env` file and add your MongoDB credentials:
+   ```
+   DATABASE_LINK=mongodb+srv://your_username:your_password@heart.9ynzc.mongodb.net/Heartpatientdatabase?retryWrites=true&w=majority
+   ```
+
+### Step 5: Set Up Database
+
+1. Install MongoDB locally or use MongoDB Atlas
+2. Ensure your DATABASE_LINK environment variable is properly set
+
+### Step 6: Run the Application
+
 ```bash
 python app.py
 ```
@@ -128,11 +149,12 @@ The application will be available at `http://localhost:5000`
 ## 💻 Usage
 
 ### Input Parameters
+
 The system requires the following medical parameters for prediction:
 
 1. **Age**: Patient's age in years
 2. **Sex**: Male/Female
-3. **Chest Pain Type**: 
+3. **Chest Pain Type**:
    - Typical Angina
    - Atypical Angina
    - Non-anginal Pain
@@ -140,14 +162,14 @@ The system requires the following medical parameters for prediction:
 4. **Resting Blood Pressure**: mm Hg
 5. **Cholesterol**: mg/dl
 6. **Fasting Blood Sugar**: >120 mg/dl (Yes/No)
-7. **Rest ECG**: 
+7. **Rest ECG**:
    - Normal
    - ST-T Wave abnormality
    - Left ventricular hypertrophy
 8. **Max Heart Rate**: Achieved during exercise
 9. **Exercise Induced Angina**: Yes/No
 10. **ST Depression**: Induced by exercise
-11. **Peak Exercise ST Segment**: 
+11. **Peak Exercise ST Segment**:
     - Upsloping
     - Flat
     - Downsloping
@@ -155,6 +177,7 @@ The system requires the following medical parameters for prediction:
 13. **Thalassemia**: Normal/Fixed defect/Reversible defect
 
 ### How to Use
+
 1. Navigate to the home page
 2. Fill in all required medical parameters
 3. Click "Predict" to get the risk assessment
@@ -164,6 +187,7 @@ The system requires the following medical parameters for prediction:
 ## 🤖 Machine Learning Model
 
 ### Algorithm
+
 The system uses **K-Nearest Neighbors (KNN)** classifier with the following specifications:
 
 - **Algorithm**: KNN with optimized parameters
@@ -173,12 +197,14 @@ The system uses **K-Nearest Neighbors (KNN)** classifier with the following spec
 - **Cross-validation**: Used for model validation
 
 ### Model Performance
+
 - **Accuracy**: 92%
 - **Precision**: High precision in positive predictions
 - **Recall**: Effective in identifying true positive cases
 - **F1-Score**: Balanced performance metric
 
 ### Model Training Process
+
 1. Data preprocessing and cleaning
 2. Feature scaling using StandardScaler
 3. Train-test split (80-20)
@@ -189,6 +215,7 @@ The system uses **K-Nearest Neighbors (KNN)** classifier with the following spec
 ## 🌐 API Endpoints
 
 ### Main Routes
+
 - `GET /` - Home page with input form
 - `POST /disease` - Process prediction request
 - `GET /result` - Display prediction results
@@ -196,6 +223,7 @@ The system uses **K-Nearest Neighbors (KNN)** classifier with the following spec
 - `GET /error` - Error handling page
 
 ### Database Operations
+
 - Store user input data
 - Save prediction results
 - Retrieve historical data for analysis
@@ -205,14 +233,36 @@ The system uses **K-Nearest Neighbors (KNN)** classifier with the following spec
 The application provides comprehensive visualizations:
 
 ### 1. Health Metrics Comparison
+
 - Bar charts comparing user values with normal ranges
 - Color-coded indicators for risk levels
 
 ### 2. Feature Importance
+
 - Visualization of which parameters contribute most to the prediction
 
 ### 3. Historical Trends
+
 - Track changes in health metrics over time
+
+## 🔒 Security
+
+### Environment Variables
+This application uses environment variables to store sensitive information like database credentials. 
+
+**Important Security Notes:**
+- Never commit `.env` files to version control
+- Rotate MongoDB credentials immediately if they were exposed
+- Use strong, unique passwords for database access
+- Consider using MongoDB Atlas IP whitelisting for additional security
+
+### Setting Up Secure Credentials
+1. Create a `.env` file in the project root
+2. Add your MongoDB connection string:
+   ```
+   DATABASE_LINK=mongodb+srv://username:password@cluster.mongodb.net/database
+   ```
+3. Ensure `.env` is listed in `.gitignore`
 
 ## 🤝 Contributing
 
@@ -225,6 +275,7 @@ We welcome contributions! Please follow these steps:
 5. Open a Pull Request
 
 ### Development Guidelines
+
 - Follow PEP 8 style guidelines
 - Add docstrings to functions
 - Include unit tests for new features
@@ -237,6 +288,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Vaidant Sharma**
+
 - GitHub: [@VaidantSharma](https://github.com/VaidantSharma/)
 - LinkedIn: [Vaidant Sharma](https://www.linkedin.com/in/vaidant-sharma-7435592a4)
 
@@ -250,6 +302,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you encounter any issues or have questions:
+
 1. Check the [Issues](https://github.com/VaidantSharma/HeartDiseasePrediction/issues) page
 2. Create a new issue with detailed description
 3. Contact the maintainer
